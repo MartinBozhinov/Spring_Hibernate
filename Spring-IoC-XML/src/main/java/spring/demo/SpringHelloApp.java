@@ -12,7 +12,10 @@ public class SpringHelloApp {
 
         Coach theCoach = context.getBean("myCoach", Coach.class);
 
-        System.out.println(theCoach.getDailyWorkout());
+        Trainer trainer = context.getBean("myTrainer",Trainer.class);
+
+       // System.out.println(theCoach.getDailyWorkout());
+        System.out.println(trainer.train());
 
         context.close();
 
