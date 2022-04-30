@@ -1,5 +1,3 @@
-package com.company;
-
 public class BaseballCoach implements Coach {
 	
 	@Override
