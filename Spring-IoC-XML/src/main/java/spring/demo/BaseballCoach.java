@@ -1,3 +1,5 @@
+package spring.demo;
+
 public class BaseballCoach implements Coach {
 	
 	@Override

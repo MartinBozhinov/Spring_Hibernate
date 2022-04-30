@@ -5,6 +5,18 @@
     <groupId>com.javainterviewpoint</groupId>
     <artifactId>SpringCoreExample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <packaging>jar</packaging>
 
     <name>SpringCoreExample</name>
@@ -30,7 +42,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.1.8.RELEASE</version>
+            <version>5.3.19</version>
         </dependency>
     </dependencies>
 </project>

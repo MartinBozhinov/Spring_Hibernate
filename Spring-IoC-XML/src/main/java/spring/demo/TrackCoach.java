@@ -1,3 +1,5 @@
+package spring.demo;
+
 public class TrackCoach implements Coach {
 
 	@Override
