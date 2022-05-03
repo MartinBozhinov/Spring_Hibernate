@@ -7,7 +7,7 @@
 
 <body>
 
-<form action="processForm" method="GET">
+<form action="processFormVersionTwo" method="GET">
 
     <label>
         <input type="text" name="studentName"
