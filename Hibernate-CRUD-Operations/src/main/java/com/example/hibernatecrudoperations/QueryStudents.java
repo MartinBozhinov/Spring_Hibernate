@@ -5,7 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.boot.SpringApplication;
 
-public class ReadStudentDemo {
+import java.util.List;
+
+public class QueryStudents {
+
     public static void main(String[] args) {
         SpringApplication.run(HibernateCrudOperationsApplication.class, args);
 
@@ -26,7 +29,11 @@ public class ReadStudentDemo {
             session.save(tempStudent2);
             session.getTransaction().commit();
 
-            System.out.println("Saved student. Generated id: " + tempStudent.getId());
+           List tempStudents = session.createQuery("FROM Student").getResultList();
+
+            for (Object student : tempStudents) {
+                System.out.println(student);
+            }
 
             session = factory.getCurrentSession();
             session.beginTransaction();
@@ -42,3 +49,5 @@ public class ReadStudentDemo {
 
 
 }
+
+
