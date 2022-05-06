@@ -29,11 +29,14 @@ public class QueryStudents {
             session.save(tempStudent2);
             session.getTransaction().commit();
 
-           List tempStudents = session.createQuery("FROM Student").getResultList();
+            List tempStudents = session.createQuery("FROM Student").getResultList();
 
             for (Object student : tempStudents) {
                 System.out.println(student);
             }
+
+            tempStudents = session.createQuery("FROM Student s WHERE s.firstName = 'Martin' ").getResultList();
+            System.out.println(tempStudents);
 
             session = factory.getCurrentSession();
             session.beginTransaction();
