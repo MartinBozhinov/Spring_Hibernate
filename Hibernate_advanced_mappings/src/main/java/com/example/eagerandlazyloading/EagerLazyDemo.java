@@ -1,13 +1,10 @@
-package com.example.onetooneuni;
+package com.example.eagerandlazyloading;
 
-import com.example.onetooneuni.entity.Instructor;
-import com.example.onetooneuni.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.data.relational.core.sql.In;
 
-public class CreateDemo {
+public class EagerLazyDemo {
 
     public static void main(String[] args) {
 
@@ -21,27 +18,17 @@ public class CreateDemo {
         Instructor tempInstructor = new Instructor("Martin","Bozhinov", "bozhinkata@Gmail.com");
         InstructorDetail tempInstDetails = new InstructorDetail("youtube.com","outdoor training");
         tempInstructor.setInstructorDetail(tempInstDetails);
+        session.beginTransaction();
+        session.save(tempInstructor);
+        session.close();
+
         try {
             session.beginTransaction();
-            session.save(tempInstructor);
+            System.out.println("Instructor" + tempInstructor);
 
-            int theId = 1;
-            Instructor instructorToDelete = session.get(Instructor.class,theId);
-
-
-            int theIdThatNotExist = 2999;
-
-            Instructor instructorNotExist = session.get(Instructor.class,theIdThatNotExist);
-
-            session.get(Instructor.class,theIdThatNotExist);
+            System.out.println("Courses" + tempInstructor.getInstructorDetail());
 
 
-             //will also delete associated "details"
-            // because of CASCADING.ALL
-            if (instructorToDelete != null){
-               session.delete(instructorToDelete);
-            }
-            session.getTransaction().commit();
 
 
         }catch (Exception exc){

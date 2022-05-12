@@ -1,4 +1,4 @@
-package com.example.onetooneuni.entity;
+package com.example.eagerandlazyloading;
 
 import javax.persistence.*;
 

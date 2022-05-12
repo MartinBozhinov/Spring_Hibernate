@@ -1,11 +1,8 @@
-package com.example.onetooneuni;
+package com.example.eagerandlazyloading;
 
-import com.example.onetooneuni.entity.Instructor;
-import com.example.onetooneuni.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.data.relational.core.sql.In;
 
 public class CreateDemo {
 
@@ -34,7 +31,7 @@ public class CreateDemo {
             Instructor instructorNotExist = session.get(Instructor.class,theIdThatNotExist);
 
             session.get(Instructor.class,theIdThatNotExist);
-
+            
 
              //will also delete associated "details"
             // because of CASCADING.ALL
