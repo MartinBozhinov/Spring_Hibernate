@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CustomerDaoImpl implements CustomerDao {
-    
+
     private final SessionFactory sessionFactory;
 
     public CustomerDaoImpl(SessionFactory sessionFactory) {
