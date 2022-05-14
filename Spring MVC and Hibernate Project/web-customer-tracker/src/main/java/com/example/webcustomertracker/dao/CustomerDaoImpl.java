@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.transaction.Transactional;
 import java.util.List;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 
+@Repository
 public class CustomerDaoImpl implements CustomerDao {
-
-    @Autowired
+    
     private final SessionFactory sessionFactory;
 
     public CustomerDaoImpl(SessionFactory sessionFactory) {
@@ -24,13 +25,8 @@ public class CustomerDaoImpl implements CustomerDao {
     @Transactional
     public List<Customer> getCustomers(){
         Session currSession = sessionFactory.getCurrentSession();
-
-
         Query<Customer> theQuery =currSession.createQuery("FROM Customer ,Customer.class");
-
         List<Customer> customers = theQuery.getResultList();
-
         return customers;
-
     }
 }
